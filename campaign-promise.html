@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Campaign Promise</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body { background: #eee; font-family: 'Nunito', sans-serif; padding: 24px; }
+
+  .page { width: 7.5in; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+
+  /* SHEET -- one per student, two fit on a printed page */
+  .sheet {
+    background: white;
+    border: 3px solid #1A1A2E;
+    border-radius: 16px;
+    overflow: hidden;
+    page-break-inside: avoid;
+  }
+
+  /* TOP HEADER BAR */
+  .sheet-header {
+    padding: 14px 24px 12px;
+    border-bottom: 3px solid #1A1A2E;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .sheet-header h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 26px;
+    line-height: 1;
+  }
+
+  .party-pill {
+    font-family: 'Fredoka One', cursive;
+    font-size: 14px;
+    border: 2.5px solid #1A1A2E;
+    border-radius: 50px;
+    padding: 4px 18px;
+    white-space: nowrap;
+  }
+
+  .party-pill.stars { background: #FFD93D; color: #1A1A2E; }
+  .party-pill.stripes { background: #4ECDC4; color: #1A1A2E; }
+
+  /* NAME ROW */
+  .name-row {
+    display: flex;
+    gap: 0;
+    border-bottom: 3px solid #1A1A2E;
+  }
+
+  .name-field {
+    flex: 1;
+    padding: 10px 18px;
+    border-right: 1.5px solid #1A1A2E;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .name-field:last-child { border-right: none; }
+
+  .field-label {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #888;
+    white-space: nowrap;
+  }
+
+  .field-line {
+    flex: 1;
+    border-bottom: 1.5px solid #1A1A2E;
+    height: 22px;
+  }
+
+  /* TWO-COLUMN BODY */
+  .body-columns {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+  }
+
+  /* LEFT: PARTY VALUES REFERENCE */
+  .values-col {
+    border-right: 3px solid #1A1A2E;
+    padding: 16px 16px 16px 18px;
+    background: #FAFAF8;
+  }
+
+  .values-col-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 13px;
+    margin-bottom: 12px;
+    letter-spacing: 0.3px;
+  }
+
+  .value-item {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed #ddd;
+  }
+
+  .value-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .value-item-title {
+    font-size: 12px;
+    font-weight: 800;
+    color: #1A1A2E;
+    margin-bottom: 3px;
+    line-height: 1.3;
+  }
+
+  .value-item-desc {
+    font-size: 11px;
+    font-weight: 700;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  .word-bank {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 2px solid #1A1A2E;
+  }
+
+  .word-bank-title {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #888;
+    margin-bottom: 8px;
+  }
+
+  .word-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .word-chip {
+    font-size: 11px;
+    font-weight: 800;
+    background: #1A1A2E;
+    color: white;
+    border-radius: 4px;
+    padding: 2px 7px;
+  }
+
+  /* RIGHT: WRITING AREA */
+  .writing-col { padding: 16px 20px; }
+
+  .writing-prompt {
+    font-size: 12px;
+    font-weight: 800;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 14px;
+    padding: 10px 14px;
+    background: #FFFDE7;
+    border-left: 4px solid #FFD93D;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .writing-prompt.stripes-prompt { background: #E1F5EE; border-left-color: #4ECDC4; }
+
+  .checklist-title {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #888;
+    margin-bottom: 8px;
+  }
+
+  .checklist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 800;
+    color: #444;
+  }
+
+  .check-box {
+    width: 14px;
+    height: 14px;
+    border: 2px solid #1A1A2E;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  /* WRITING LINES */
+  .lines { display: flex; flex-direction: column; gap: 0; }
+
+  .write-line {
+    border-bottom: 1.5px solid #C8C8C8;
+    height: 30px;
+    width: 100%;
+  }
+
+  .write-line.first { border-bottom-color: #1A1A2E; }
+
+  /* CUT LINE */
+  .cut-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #aaa;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .cut-line::before, .cut-line::after { content: ''; flex: 1; border-top: 2px dashed #ccc; }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .page { width: 100%; gap: 0; }
+    .sheet { border-radius: 0; border-left: none; border-right: none; margin: 0; }
+    .cut-line { page-break-after: avoid; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- STARS SHEET -->
+  <div class="sheet">
+    <div class="sheet-header" style="background: #FFFDE7;">
+      <h1>My Campaign Promise</h1>
+      <div class="party-pill stars">&#9733; The Stars</div>
+    </div>
+
+    <div class="name-row">
+      <div class="name-field">
+        <span class="field-label">Name</span>
+        <div class="field-line"></div>
+      </div>
+      <div class="name-field">
+        <span class="field-label">Date</span>
+        <div class="field-line"></div>
+      </div>
+      <div class="name-field">
+        <span class="field-label">Role</span>
+        <div class="field-line"></div>
+      </div>
+    </div>
+
+    <div class="body-columns">
+      <div class="values-col">
+        <div class="values-col-title">&#9733; Stars Values</div>
+
+        <div class="value-item">
+          <div class="value-item-title">A Strong Start Every Day</div>
+          <div class="value-item-desc">Lead morning meeting with energy so everyone feels ready to learn.</div>
+        </div>
+
+        <div class="value-item">
+          <div class="value-item-title">Every Voice Gets Heard</div>
+          <div class="value-item-desc">Listen to quiet voices, not just the loudest ones.</div>
+        </div>
+
+        <div class="value-item">
+          <div class="value-item-title">Lead by Example</div>
+          <div class="value-item-desc">Show kindness and good attitude first -- then expect it from others.</div>
+        </div>
+
+        <div class="word-bank">
+          <div class="word-bank-title">Emotion Words</div>
+          <div class="word-list">
+            <span class="word-chip">excited</span>
+            <span class="word-chip">proud</span>
+            <span class="word-chip">inspired</span>
+            <span class="word-chip">hopeful</span>
+            <span class="word-chip">determined</span>
+            <span class="word-chip">believe</span>
+            <span class="word-chip">passionate</span>
+            <span class="word-chip">committed</span>
+          </div>
+        </div>
+
+        <div class="word-bank" style="margin-top:10px;">
+          <div class="word-bank-title">Persuasive Words</div>
+          <div class="word-list">
+            <span class="word-chip" style="background:#C8860A;">I promise</span>
+            <span class="word-chip" style="background:#C8860A;">together</span>
+            <span class="word-chip" style="background:#C8860A;">every student</span>
+            <span class="word-chip" style="background:#C8860A;">because</span>
+            <span class="word-chip" style="background:#C8860A;">always</span>
+            <span class="word-chip" style="background:#C8860A;">matters</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="writing-col">
+        <div class="writing-prompt">
+          You are the Stars nominee. Write 2-3 sentences promising what you will do as class president. Use your party values, at least one emotion word, and persuasive language to convince your classmates to vote for you.
+        </div>
+
+        <div class="checklist-title">Before you submit, check:</div>
+        <div class="checklist">
+          <div class="check-item"><div class="check-box"></div> My promise matches Stars values</div>
+          <div class="check-item"><div class="check-box"></div> I used at least 1 emotion word</div>
+          <div class="check-item"><div class="check-box"></div> I used persuasive language</div>
+          <div class="check-item"><div class="check-box"></div> I gave a reason (because...)</div>
+          <div class="check-item"><div class="check-box"></div> 2-3 complete sentences</div>
+        </div>
+
+        <div class="lines">
+          <div class="write-line first"></div>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cut-line">&#9988; cut here</div>
+
+  <!-- STRIPES SHEET -->
+  <div class="sheet">
+    <div class="sheet-header" style="background: #E1F5EE;">
+      <h1>My Campaign Promise</h1>
+      <div class="party-pill stripes">&#9646; The Stripes</div>
+    </div>
+
+    <div class="name-row">
+      <div class="name-field">
+        <span class="field-label">Name</span>
+        <div class="field-line"></div>
+      </div>
+      <div class="name-field">
+        <span class="field-label">Date</span>
+        <div class="field-line"></div>
+      </div>
+      <div class="name-field">
+        <span class="field-label">Role</span>
+        <div class="field-line"></div>
+      </div>
+    </div>
+
+    <div class="body-columns">
+      <div class="values-col">
+        <div class="values-col-title">&#9646; Stripes Values</div>
+
+        <div class="value-item">
+          <div class="value-item-title">Fair Solutions for Everyone</div>
+          <div class="value-item-desc">Hear both sides before deciding. No favorites, ever.</div>
+        </div>
+
+        <div class="value-item">
+          <div class="value-item-title">Calm Wins Over Chaos</div>
+          <div class="value-item-desc">Stay steady under pressure. Think before reacting.</div>
+        </div>
+
+        <div class="value-item">
+          <div class="value-item-title">Decisions Belong to Everyone</div>
+          <div class="value-item-desc">Run fair votes and accept the outcome even when it's hard.</div>
+        </div>
+
+        <div class="word-bank">
+          <div class="word-bank-title">Emotion Words</div>
+          <div class="word-list">
+            <span class="word-chip" style="background:#085041;">confident</span>
+            <span class="word-chip" style="background:#085041;">fair</span>
+            <span class="word-chip" style="background:#085041;">trusted</span>
+            <span class="word-chip" style="background:#085041;">steady</span>
+            <span class="word-chip" style="background:#085041;">respect</span>
+            <span class="word-chip" style="background:#085041;">worthy</span>
+            <span class="word-chip" style="background:#085041;">honest</span>
+            <span class="word-chip" style="background:#085041;">brave</span>
+          </div>
+        </div>
+
+        <div class="word-bank" style="margin-top:10px;">
+          <div class="word-bank-title">Persuasive Words</div>
+          <div class="word-list">
+            <span class="word-chip" style="background:#0F6E56;">I will</span>
+            <span class="word-chip" style="background:#0F6E56;">every person</span>
+            <span class="word-chip" style="background:#0F6E56;">because</span>
+            <span class="word-chip" style="background:#0F6E56;">proven</span>
+            <span class="word-chip" style="background:#0F6E56;">never</span>
+            <span class="word-chip" style="background:#0F6E56;">the right thing</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="writing-col">
+        <div class="writing-prompt stripes-prompt">
+          You are the Stripes nominee. Write 2-3 sentences promising what you will do as class president. Use your party values, at least one emotion word, and persuasive language to convince your classmates to vote for you.
+        </div>
+
+        <div class="checklist-title">Before you submit, check:</div>
+        <div class="checklist">
+          <div class="check-item"><div class="check-box"></div> My promise matches Stripes values</div>
+          <div class="check-item"><div class="check-box"></div> I used at least 1 emotion word</div>
+          <div class="check-item"><div class="check-box"></div> I used persuasive language</div>
+          <div class="check-item"><div class="check-box"></div> I gave a reason (because...)</div>
+          <div class="check-item"><div class="check-box"></div> 2-3 complete sentences</div>
+        </div>
+
+        <div class="lines">
+          <div class="write-line first"></div>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

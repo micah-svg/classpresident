@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Stars Party</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: white; font-family: 'Nunito', sans-serif; color: #1A1A2E; padding: 48px 56px; }
+
+  .top-stripe { height: 10px; background: repeating-linear-gradient(90deg, #FFD93D 0px, #FFD93D 32px, #1A1A2E 32px, #1A1A2E 64px); margin-bottom: 36px; border-radius: 4px; }
+
+  .header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 32px; }
+
+  .party-name { font-family: 'Fredoka One', cursive; font-size: 64px; line-height: 1; color: #1A1A2E; }
+  .party-name span { color: #FFD93D; -webkit-text-stroke: 2px #1A1A2E; }
+
+  .party-tagline { font-size: 15px; font-weight: 800; color: #888; margin-top: 6px; letter-spacing: 1px; text-transform: uppercase; }
+
+  .star-cluster { font-size: 52px; line-height: 1; letter-spacing: -4px; }
+
+  .members-box {
+    border: 3px solid #1A1A2E;
+    border-radius: 14px;
+    padding: 16px 24px;
+    background: #FFFDE7;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .members-label { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #888; white-space: nowrap; }
+  .members-names { font-size: 16px; font-weight: 800; color: #1A1A2E; }
+
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 22px;
+    margin-bottom: 16px;
+    color: #1A1A2E;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-title::after { content: ''; flex: 1; height: 2px; background: #FFD93D; border-radius: 2px; }
+
+  .values-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 32px; }
+
+  .value-card {
+    border: 2.5px solid #1A1A2E;
+    border-radius: 14px;
+    padding: 18px 22px;
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .value-card:nth-child(1) { background: #FFFDE7; }
+  .value-card:nth-child(2) { background: #E8F8F5; }
+  .value-card:nth-child(3) { background: #FEF0F0; }
+
+  .value-num {
+    font-family: 'Fredoka One', cursive;
+    font-size: 36px;
+    line-height: 1;
+    color: #1A1A2E;
+    opacity: 0.15;
+  }
+
+  .value-title { font-family: 'Fredoka One', cursive; font-size: 20px; margin-bottom: 4px; }
+  .value-desc { font-size: 14px; font-weight: 700; line-height: 1.6; color: #444; }
+  .value-promise { font-size: 13px; font-weight: 800; color: #888; margin-top: 8px; font-style: italic; }
+
+  .pledge-box {
+    border: 3px solid #1A1A2E;
+    border-radius: 14px;
+    padding: 20px 24px;
+    background: #1A1A2E;
+    color: white;
+  }
+
+  .pledge-title { font-family: 'Fredoka One', cursive; font-size: 18px; margin-bottom: 10px; color: #FFD93D; }
+  .pledge-text { font-size: 14px; font-weight: 700; line-height: 1.8; }
+  .pledge-text em { color: #FFD93D; font-style: normal; }
+
+  .bottom-stripe { height: 10px; background: repeating-linear-gradient(90deg, #FFD93D 0px, #FFD93D 32px, #1A1A2E 32px, #1A1A2E 64px); margin-top: 36px; border-radius: 4px; }
+
+  @media print {
+    body { padding: 32px 40px; }
+    .top-stripe, .bottom-stripe { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .value-card, .members-box, .pledge-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="header">
+  <div>
+    <div class="party-name">The <span>Stars</span></div>
+    <div class="party-tagline">Every voice. Every morning. Every day.</div>
+  </div>
+  <div class="star-cluster">&#9733;&#9733;<br>&#9733;&#9733;&#9733;</div>
+</div>
+
+<div class="members-box">
+  <div class="members-label">Party Members</div>
+  <div class="members-names">Aiden &nbsp;&bull;&nbsp; Jackson &nbsp;&bull;&nbsp; Milo &nbsp;&bull;&nbsp; Ty &nbsp;&bull;&nbsp; Alexa &nbsp;&bull;&nbsp; Colette &nbsp;&bull;&nbsp; Ellowyn</div>
+</div>
+
+<div class="section-title">What We Stand For</div>
+
+<div class="values-grid">
+
+  <div class="value-card">
+    <div class="value-num">1</div>
+    <div>
+      <div class="value-title">A Strong Start Every Day</div>
+      <div class="value-desc">The Stars believe morning meeting sets the tone for the whole class. A president who leads it well makes every student feel like they belong and know what's coming. When the day starts with energy and clarity, everyone does better.</div>
+      <div class="value-promise">Our promise: Morning meeting will never be boring or skipped.</div>
+    </div>
+  </div>
+
+  <div class="value-card">
+    <div class="value-num">2</div>
+    <div>
+      <div class="value-title">Every Voice Gets Heard</div>
+      <div class="value-desc">The Stars believe a great leader listens before they speak. When the class gets to make a decision together, a Stars president makes sure quiet voices get a chance, not just the loudest ones. Good ideas can come from anyone.</div>
+      <div class="value-promise">Our promise: No one gets left out of the conversation.</div>
+    </div>
+  </div>
+
+  <div class="value-card">
+    <div class="value-num">3</div>
+    <div>
+      <div class="value-title">Lead by Example</div>
+      <div class="value-desc">The Stars believe the best leaders don't just talk about doing the right thing -- they do it first. A Stars president shows kindness, listens well, and keeps a good attitude even when things are hard. The class watches what their leader does.</div>
+      <div class="value-promise">Our promise: We will be the example we want to see.</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="pledge-box">
+  <div class="pledge-title">The Stars Pledge</div>
+  <div class="pledge-text">
+    As a member of The Stars, I believe that <em>how we start our day matters</em>.<br>
+    I will speak up, listen well, and make sure my classmates feel seen.<br>
+    I will lead with <em>energy, kindness, and purpose</em> -- every single day.
+  </div>
+</div>
+
+<div class="bottom-stripe"></div>
+
+</body>
+</html>

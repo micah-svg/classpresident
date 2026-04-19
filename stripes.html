@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Stripes Party</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: white; font-family: 'Nunito', sans-serif; color: #1A1A2E; padding: 48px 56px; }
+
+  .top-stripe { height: 10px; background: repeating-linear-gradient(90deg, #4ECDC4 0px, #4ECDC4 32px, #1A1A2E 32px, #1A1A2E 64px); margin-bottom: 36px; border-radius: 4px; }
+
+  .header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 32px; }
+
+  .party-name { font-family: 'Fredoka One', cursive; font-size: 64px; line-height: 1; color: #1A1A2E; }
+  .party-name span { color: #4ECDC4; -webkit-text-stroke: 2px #1A1A2E; }
+
+  .party-tagline { font-size: 15px; font-weight: 800; color: #888; margin-top: 6px; letter-spacing: 1px; text-transform: uppercase; }
+
+  .stripe-icon { display: flex; flex-direction: column; gap: 7px; padding-top: 8px; }
+  .stripe-line { width: 52px; height: 10px; border-radius: 3px; border: 2.5px solid #1A1A2E; }
+  .stripe-line:nth-child(1) { background: #4ECDC4; }
+  .stripe-line:nth-child(2) { background: #1A1A2E; }
+  .stripe-line:nth-child(3) { background: #4ECDC4; }
+  .stripe-line:nth-child(4) { background: #1A1A2E; }
+  .stripe-line:nth-child(5) { background: #4ECDC4; }
+
+  .members-box {
+    border: 3px solid #1A1A2E;
+    border-radius: 14px;
+    padding: 16px 24px;
+    background: #E1F5EE;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .members-label { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #888; white-space: nowrap; }
+  .members-names { font-size: 16px; font-weight: 800; color: #1A1A2E; }
+
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 22px;
+    margin-bottom: 16px;
+    color: #1A1A2E;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-title::after { content: ''; flex: 1; height: 2px; background: #4ECDC4; border-radius: 2px; }
+
+  .values-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 32px; }
+
+  .value-card {
+    border: 2.5px solid #1A1A2E;
+    border-radius: 14px;
+    padding: 18px 22px;
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .value-card:nth-child(1) { background: #E1F5EE; }
+  .value-card:nth-child(2) { background: #FFF9E6; }
+  .value-card:nth-child(3) { background: #F3EAFF; }
+
+  .value-num {
+    font-family: 'Fredoka One', cursive;
+    font-size: 36px;
+    line-height: 1;
+    color: #1A1A2E;
+    opacity: 0.15;
+  }
+
+  .value-title { font-family: 'Fredoka One', cursive; font-size: 20px; margin-bottom: 4px; }
+  .value-desc { font-size: 14px; font-weight: 700; line-height: 1.6; color: #444; }
+  .value-promise { font-size: 13px; font-weight: 800; color: #888; margin-top: 8px; font-style: italic; }
+
+  .pledge-box {
+    border: 3px solid #1A1A2E;
+    border-radius: 14px;
+    padding: 20px 24px;
+    background: #1A1A2E;
+    color: white;
+  }
+
+  .pledge-title { font-family: 'Fredoka One', cursive; font-size: 18px; margin-bottom: 10px; color: #4ECDC4; }
+  .pledge-text { font-size: 14px; font-weight: 700; line-height: 1.8; }
+  .pledge-text em { color: #4ECDC4; font-style: normal; }
+
+  .bottom-stripe { height: 10px; background: repeating-linear-gradient(90deg, #4ECDC4 0px, #4ECDC4 32px, #1A1A2E 32px, #1A1A2E 64px); margin-top: 36px; border-radius: 4px; }
+
+  @media print {
+    body { padding: 32px 40px; }
+    .top-stripe, .bottom-stripe { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .value-card, .members-box, .pledge-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="header">
+  <div>
+    <div class="party-name">The <span>Stripes</span></div>
+    <div class="party-tagline">Fair. Calm. For everyone.</div>
+  </div>
+  <div class="stripe-icon">
+    <div class="stripe-line"></div>
+    <div class="stripe-line"></div>
+    <div class="stripe-line"></div>
+    <div class="stripe-line"></div>
+    <div class="stripe-line"></div>
+  </div>
+</div>
+
+<div class="members-box">
+  <div class="members-label">Party Members</div>
+  <div class="members-names">Brayden &nbsp;&bull;&nbsp; Luke &nbsp;&bull;&nbsp; Tucker &nbsp;&bull;&nbsp; Waylon &nbsp;&bull;&nbsp; Ava &nbsp;&bull;&nbsp; KK &nbsp;&bull;&nbsp; Kylie &nbsp;&bull;&nbsp; Taegan</div>
+</div>
+
+<div class="section-title">What We Stand For</div>
+
+<div class="values-grid">
+
+  <div class="value-card">
+    <div class="value-num">1</div>
+    <div>
+      <div class="value-title">Fair Solutions for Everyone</div>
+      <div class="value-desc">The Stripes believe a president's most important job is solving problems without taking sides. When classmates disagree, a Stripes president listens to both sides, stays calm, and finds a solution that feels fair -- not just for their friends, but for the whole class.</div>
+      <div class="value-promise">Our promise: We will always hear both sides before deciding.</div>
+    </div>
+  </div>
+
+  <div class="value-card">
+    <div class="value-num">2</div>
+    <div>
+      <div class="value-title">Calm Wins Over Chaos</div>
+      <div class="value-desc">The Stripes believe a leader who stays calm under pressure makes better decisions. When things get messy or unfair, a Stripes president doesn't panic or pick favorites. They take a breath, think it through, and help the class get back on track with clear, steady leadership.</div>
+      <div class="value-promise">Our promise: We will be the calm in the storm.</div>
+    </div>
+  </div>
+
+  <div class="value-card">
+    <div class="value-num">3</div>
+    <div>
+      <div class="value-title">Decisions That Belong to Everyone</div>
+      <div class="value-desc">The Stripes believe that when the class gets to choose something fun, the process matters as much as the result. A Stripes president runs a fair vote, makes sure every student has a real say, and accepts the outcome -- even if it's not what they personally wanted.</div>
+      <div class="value-promise">Our promise: The class decides together. Always.</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="pledge-box">
+  <div class="pledge-title">The Stripes Pledge</div>
+  <div class="pledge-text">
+    As a member of The Stripes, I believe that <em>fairness is the foundation of everything</em>.<br>
+    I will stay calm, listen carefully, and stand up for what is right -- not just what is easy.<br>
+    I will lead with <em>honesty, steadiness, and respect for every person</em> in this room.
+  </div>
+</div>
+
+<div class="bottom-stripe"></div>
+
+</body>
+</html>
