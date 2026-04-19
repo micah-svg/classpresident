@@ -2,438 +2,353 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>My Campaign Promise</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Parties</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body { background: #eee; font-family: 'Nunito', sans-serif; padding: 24px; }
-
-  .page { width: 7.5in; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
-
-  /* SHEET -- one per student, two fit on a printed page */
-  .sheet {
-    background: white;
-    border: 3px solid #1A1A2E;
-    border-radius: 16px;
-    overflow: hidden;
-    page-break-inside: avoid;
-  }
-
-  /* TOP HEADER BAR */
-  .sheet-header {
-    padding: 14px 24px 12px;
-    border-bottom: 3px solid #1A1A2E;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .sheet-header h1 {
-    font-family: 'Fredoka One', cursive;
-    font-size: 26px;
-    line-height: 1;
-  }
-
-  .party-pill {
-    font-family: 'Fredoka One', cursive;
-    font-size: 14px;
-    border: 2.5px solid #1A1A2E;
-    border-radius: 50px;
-    padding: 4px 18px;
-    white-space: nowrap;
-  }
-
-  .party-pill.stars { background: #FFD93D; color: #1A1A2E; }
-  .party-pill.stripes { background: #4ECDC4; color: #1A1A2E; }
-
-  /* NAME ROW */
-  .name-row {
-    display: flex;
-    gap: 0;
-    border-bottom: 3px solid #1A1A2E;
-  }
-
-  .name-field {
-    flex: 1;
-    padding: 10px 18px;
-    border-right: 1.5px solid #1A1A2E;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .name-field:last-child { border-right: none; }
-
-  .field-label {
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    color: #888;
-    white-space: nowrap;
-  }
-
-  .field-line {
-    flex: 1;
-    border-bottom: 1.5px solid #1A1A2E;
-    height: 22px;
-  }
-
-  /* TWO-COLUMN BODY */
-  .body-columns {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-  }
-
-  /* LEFT: PARTY VALUES REFERENCE */
-  .values-col {
-    border-right: 3px solid #1A1A2E;
-    padding: 16px 16px 16px 18px;
-    background: #FAFAF8;
-  }
-
-  .values-col-title {
-    font-family: 'Fredoka One', cursive;
-    font-size: 13px;
-    margin-bottom: 12px;
-    letter-spacing: 0.3px;
-  }
-
-  .value-item {
-    margin-bottom: 12px;
-    padding-bottom: 12px;
-    border-bottom: 1px dashed #ddd;
-  }
-
-  .value-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-
-  .value-item-title {
-    font-size: 12px;
-    font-weight: 800;
-    color: #1A1A2E;
-    margin-bottom: 3px;
-    line-height: 1.3;
-  }
-
-  .value-item-desc {
-    font-size: 11px;
-    font-weight: 700;
-    color: #666;
-    line-height: 1.5;
-  }
-
-  .word-bank {
-    margin-top: 14px;
-    padding-top: 12px;
-    border-top: 2px solid #1A1A2E;
-  }
-
-  .word-bank-title {
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    color: #888;
-    margin-bottom: 8px;
-  }
-
-  .word-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-  }
-
-  .word-chip {
-    font-size: 11px;
-    font-weight: 800;
+  body {
     background: #1A1A2E;
+    font-family: 'Nunito', sans-serif;
     color: white;
-    border-radius: 4px;
-    padding: 2px 7px;
-  }
-
-  /* RIGHT: WRITING AREA */
-  .writing-col { padding: 16px 20px; }
-
-  .writing-prompt {
-    font-size: 12px;
-    font-weight: 800;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 14px;
-    padding: 10px 14px;
-    background: #FFFDE7;
-    border-left: 4px solid #FFD93D;
-    border-radius: 0 8px 8px 0;
-  }
-
-  .writing-prompt.stripes-prompt { background: #E1F5EE; border-left-color: #4ECDC4; }
-
-  .checklist-title {
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    color: #888;
-    margin-bottom: 8px;
-  }
-
-  .checklist {
+    height: 100vh;
     display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 14px;
+    flex-direction: column;
+    overflow: hidden;
   }
 
-  .check-item {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 11px;
-    font-weight: 800;
-    color: #444;
-  }
-
-  .check-box {
-    width: 14px;
-    height: 14px;
-    border: 2px solid #1A1A2E;
-    border-radius: 3px;
+  /* TOP HEADER */
+  .top-header {
+    text-align: center;
+    padding: 18px 40px 14px;
+    border-bottom: 3px solid rgba(255,255,255,0.1);
     flex-shrink: 0;
   }
 
-  /* WRITING LINES */
-  .lines { display: flex; flex-direction: column; gap: 0; }
-
-  .write-line {
-    border-bottom: 1.5px solid #C8C8C8;
-    height: 30px;
-    width: 100%;
+  .top-header h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 28px;
+    letter-spacing: 1px;
+    color: white;
   }
 
-  .write-line.first { border-bottom-color: #1A1A2E; }
-
-  /* CUT LINE */
-  .cut-line {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: #aaa;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 1px;
+  .top-header p {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.45);
+    margin-top: 2px;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
   }
 
-  .cut-line::before, .cut-line::after { content: ''; flex: 1; border-top: 2px dashed #ccc; }
+  /* MAIN COLUMNS */
+  .columns {
+    display: grid;
+    grid-template-columns: 1fr 4px 1fr;
+    flex: 1;
+    overflow: hidden;
+  }
 
-  @media print {
-    body { background: white; padding: 0; }
-    .page { width: 100%; gap: 0; }
-    .sheet { border-radius: 0; border-left: none; border-right: none; margin: 0; }
-    .cut-line { page-break-after: avoid; }
-    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .divider {
+    background: rgba(255,255,255,0.1);
+  }
+
+  .party-col {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 36px 20px;
+    overflow: hidden;
+  }
+
+  /* PARTY HEADER */
+  .party-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    flex-shrink: 0;
+  }
+
+  .party-name-block {}
+
+  .party-name {
+    font-family: 'Fredoka One', cursive;
+    font-size: 48px;
+    line-height: 1;
+  }
+
+  .stars-col .party-name { color: #FFD93D; }
+  .stripes-col .party-name { color: #4ECDC4; }
+
+  .party-tagline {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 4px;
+  }
+
+  .party-icon { font-size: 40px; line-height: 1; opacity: 0.6; }
+
+  .stripe-icon { display: flex; flex-direction: column; gap: 5px; }
+  .stripe-line { width: 38px; height: 7px; border-radius: 2px; }
+  .stripe-line:nth-child(odd)  { background: #4ECDC4; opacity: 0.6; }
+  .stripe-line:nth-child(even) { background: white;   opacity: 0.2; }
+
+  /* MEMBERS */
+  .members-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+  }
+
+  .member-chip {
+    font-size: 13px;
+    font-weight: 800;
+    border-radius: 50px;
+    padding: 4px 14px;
+    border: 2px solid rgba(255,255,255,0.2);
+    color: white;
+  }
+
+  .stars-col .member-chip   { background: rgba(255,217,61,0.15);  border-color: rgba(255,217,61,0.35); }
+  .stripes-col .member-chip { background: rgba(78,205,196,0.15); border-color: rgba(78,205,196,0.35); }
+
+  /* DIVIDER LINE */
+  .section-rule {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 16px;
+    flex-shrink: 0;
+  }
+
+  /* VALUES */
+  .values { display: flex; flex-direction: column; gap: 12px; flex: 1; overflow: hidden; }
+
+  .value-card {
+    border-radius: 14px;
+    padding: 14px 18px;
+    border: 1.5px solid rgba(255,255,255,0.1);
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 12px;
+    align-items: start;
+    flex: 1;
+  }
+
+  .stars-col .value-card   { background: rgba(255,217,61,0.07); }
+  .stripes-col .value-card { background: rgba(78,205,196,0.07); }
+
+  .val-num {
+    font-family: 'Fredoka One', cursive;
+    font-size: 30px;
+    line-height: 1;
+    opacity: 0.2;
+    color: white;
+  }
+
+  .val-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 17px;
+    line-height: 1.1;
+    margin-bottom: 5px;
+  }
+
+  .stars-col .val-title   { color: #FFD93D; }
+  .stripes-col .val-title { color: #4ECDC4; }
+
+  .val-desc {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.65);
+  }
+
+  .val-promise {
+    margin-top: 7px;
+    font-size: 12px;
+    font-weight: 800;
+    font-style: italic;
+    color: rgba(255,255,255,0.35);
+  }
+
+  /* BOTTOM PLEDGE */
+  .pledge {
+    margin-top: 16px;
+    border-radius: 12px;
+    padding: 12px 18px;
+    flex-shrink: 0;
+  }
+
+  .stars-col .pledge   { background: rgba(255,217,61,0.12);  border: 1.5px solid rgba(255,217,61,0.25); }
+  .stripes-col .pledge { background: rgba(78,205,196,0.12); border: 1.5px solid rgba(78,205,196,0.25); }
+
+  .pledge-label {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+  }
+
+  .stars-col .pledge-label   { color: #FFD93D; }
+  .stripes-col .pledge-label { color: #4ECDC4; }
+
+  .pledge-text {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .pledge-text em {
+    font-style: normal;
+    font-weight: 800;
+    color: white;
   }
 </style>
 </head>
 <body>
-<div class="page">
 
-  <!-- STARS SHEET -->
-  <div class="sheet">
-    <div class="sheet-header" style="background: #FFFDE7;">
-      <h1>My Campaign Promise</h1>
-      <div class="party-pill stars">&#9733; The Stars</div>
+<div class="top-header">
+  <h1>4th Grade Class Parties</h1>
+  <p>Class President Election &nbsp;&bull;&nbsp; Know your party &nbsp;&bull;&nbsp; Know your values</p>
+</div>
+
+<div class="columns">
+
+  <!-- STARS -->
+  <div class="party-col stars-col">
+
+    <div class="party-header">
+      <div class="party-name-block">
+        <div class="party-name">The Stars</div>
+        <div class="party-tagline">Every voice. Every morning. Every day.</div>
+      </div>
+      <div class="party-icon">&#9733;&#9733;<br>&#9733;&#9733;&#9733;</div>
     </div>
 
-    <div class="name-row">
-      <div class="name-field">
-        <span class="field-label">Name</span>
-        <div class="field-line"></div>
-      </div>
-      <div class="name-field">
-        <span class="field-label">Date</span>
-        <div class="field-line"></div>
-      </div>
-      <div class="name-field">
-        <span class="field-label">Role</span>
-        <div class="field-line"></div>
-      </div>
+    <div class="members-row">
+      <div class="member-chip">Aiden</div>
+      <div class="member-chip">Jackson</div>
+      <div class="member-chip">Milo</div>
+      <div class="member-chip">Ty</div>
+      <div class="member-chip">Alexa</div>
+      <div class="member-chip">Colette</div>
+      <div class="member-chip">Ellowyn</div>
     </div>
 
-    <div class="body-columns">
-      <div class="values-col">
-        <div class="values-col-title">&#9733; Stars Values</div>
+    <hr class="section-rule">
 
-        <div class="value-item">
-          <div class="value-item-title">A Strong Start Every Day</div>
-          <div class="value-item-desc">Lead morning meeting with energy so everyone feels ready to learn.</div>
-        </div>
-
-        <div class="value-item">
-          <div class="value-item-title">Every Voice Gets Heard</div>
-          <div class="value-item-desc">Listen to quiet voices, not just the loudest ones.</div>
-        </div>
-
-        <div class="value-item">
-          <div class="value-item-title">Lead by Example</div>
-          <div class="value-item-desc">Show kindness and good attitude first -- then expect it from others.</div>
-        </div>
-
-        <div class="word-bank">
-          <div class="word-bank-title">Emotion Words</div>
-          <div class="word-list">
-            <span class="word-chip">excited</span>
-            <span class="word-chip">proud</span>
-            <span class="word-chip">inspired</span>
-            <span class="word-chip">hopeful</span>
-            <span class="word-chip">determined</span>
-            <span class="word-chip">believe</span>
-            <span class="word-chip">passionate</span>
-            <span class="word-chip">committed</span>
-          </div>
-        </div>
-
-        <div class="word-bank" style="margin-top:10px;">
-          <div class="word-bank-title">Persuasive Words</div>
-          <div class="word-list">
-            <span class="word-chip" style="background:#C8860A;">I promise</span>
-            <span class="word-chip" style="background:#C8860A;">together</span>
-            <span class="word-chip" style="background:#C8860A;">every student</span>
-            <span class="word-chip" style="background:#C8860A;">because</span>
-            <span class="word-chip" style="background:#C8860A;">always</span>
-            <span class="word-chip" style="background:#C8860A;">matters</span>
-          </div>
+    <div class="values">
+      <div class="value-card">
+        <div class="val-num">1</div>
+        <div>
+          <div class="val-title">A Strong Start Every Day</div>
+          <div class="val-desc">Morning meeting sets the tone for the whole class. A Stars president leads it with energy so every student feels ready and included.</div>
+          <div class="val-promise">Our promise: Morning meeting will never be boring or skipped.</div>
         </div>
       </div>
 
-      <div class="writing-col">
-        <div class="writing-prompt">
-          You are the Stars nominee. Write 2-3 sentences promising what you will do as class president. Use your party values, at least one emotion word, and persuasive language to convince your classmates to vote for you.
+      <div class="value-card">
+        <div class="val-num">2</div>
+        <div>
+          <div class="val-title">Every Voice Gets Heard</div>
+          <div class="val-desc">When the class makes a decision together, a Stars president makes sure quiet voices get a chance -- not just the loudest ones.</div>
+          <div class="val-promise">Our promise: No one gets left out of the conversation.</div>
         </div>
+      </div>
 
-        <div class="checklist-title">Before you submit, check:</div>
-        <div class="checklist">
-          <div class="check-item"><div class="check-box"></div> My promise matches Stars values</div>
-          <div class="check-item"><div class="check-box"></div> I used at least 1 emotion word</div>
-          <div class="check-item"><div class="check-box"></div> I used persuasive language</div>
-          <div class="check-item"><div class="check-box"></div> I gave a reason (because...)</div>
-          <div class="check-item"><div class="check-box"></div> 2-3 complete sentences</div>
-        </div>
-
-        <div class="lines">
-          <div class="write-line first"></div>
-          <div class="write-line"></div>
-          <div class="write-line"></div>
-          <div class="write-line"></div>
-          <div class="write-line"></div>
-          <div class="write-line"></div>
-          <div class="write-line"></div>
-          <div class="write-line"></div>
+      <div class="value-card">
+        <div class="val-num">3</div>
+        <div>
+          <div class="val-title">Lead by Example</div>
+          <div class="val-desc">The best leaders don't just talk about doing the right thing -- they do it first. A Stars president shows kindness and good attitude before expecting it from others.</div>
+          <div class="val-promise">Our promise: We will be the example we want to see.</div>
         </div>
       </div>
     </div>
+
+    <div class="pledge">
+      <div class="pledge-label">The Stars Pledge</div>
+      <div class="pledge-text">I believe that <em>how we start our day matters</em>. I will speak up, listen well, and make sure my classmates feel seen. I will lead with <em>energy, kindness, and purpose</em> -- every single day.</div>
+    </div>
+
   </div>
 
-  <div class="cut-line">&#9988; cut here</div>
+  <div class="divider"></div>
 
-  <!-- STRIPES SHEET -->
-  <div class="sheet">
-    <div class="sheet-header" style="background: #E1F5EE;">
-      <h1>My Campaign Promise</h1>
-      <div class="party-pill stripes">&#9646; The Stripes</div>
-    </div>
+  <!-- STRIPES -->
+  <div class="party-col stripes-col">
 
-    <div class="name-row">
-      <div class="name-field">
-        <span class="field-label">Name</span>
-        <div class="field-line"></div>
+    <div class="party-header">
+      <div class="party-name-block">
+        <div class="party-name">The Stripes</div>
+        <div class="party-tagline">Fair. Calm. For everyone.</div>
       </div>
-      <div class="name-field">
-        <span class="field-label">Date</span>
-        <div class="field-line"></div>
-      </div>
-      <div class="name-field">
-        <span class="field-label">Role</span>
-        <div class="field-line"></div>
+      <div class="stripe-icon">
+        <div class="stripe-line"></div>
+        <div class="stripe-line"></div>
+        <div class="stripe-line"></div>
+        <div class="stripe-line"></div>
+        <div class="stripe-line"></div>
       </div>
     </div>
 
-    <div class="body-columns">
-      <div class="values-col">
-        <div class="values-col-title">&#9646; Stripes Values</div>
+    <div class="members-row">
+      <div class="member-chip">Brayden</div>
+      <div class="member-chip">Luke</div>
+      <div class="member-chip">Tucker</div>
+      <div class="member-chip">Waylon</div>
+      <div class="member-chip">Ava</div>
+      <div class="member-chip">KK</div>
+      <div class="member-chip">Kylie</div>
+      <div class="member-chip">Taegan</div>
+    </div>
 
-        <div class="value-item">
-          <div class="value-item-title">Fair Solutions for Everyone</div>
-          <div class="value-item-desc">Hear both sides before deciding. No favorites, ever.</div>
-        </div>
+    <hr class="section-rule">
 
-        <div class="value-item">
-          <div class="value-item-title">Calm Wins Over Chaos</div>
-          <div class="value-item-desc">Stay steady under pressure. Think before reacting.</div>
-        </div>
-
-        <div class="value-item">
-          <div class="value-item-title">Decisions Belong to Everyone</div>
-          <div class="value-item-desc">Run fair votes and accept the outcome even when it's hard.</div>
-        </div>
-
-        <div class="word-bank">
-          <div class="word-bank-title">Emotion Words</div>
-          <div class="word-list">
-            <span class="word-chip" style="background:#085041;">confident</span>
-            <span class="word-chip" style="background:#085041;">fair</span>
-            <span class="word-chip" style="background:#085041;">trusted</span>
-            <span class="word-chip" style="background:#085041;">steady</span>
-            <span class="word-chip" style="background:#085041;">respect</span>
-            <span class="word-chip" style="background:#085041;">worthy</span>
-            <span class="word-chip" style="background:#085041;">honest</span>
-            <span class="word-chip" style="background:#085041;">brave</span>
-          </div>
-        </div>
-
-        <div class="word-bank" style="margin-top:10px;">
-          <div class="word-bank-title">Persuasive Words</div>
-          <div class="word-list">
-            <span class="word-chip" style="background:#0F6E56;">I will</span>
-            <span class="word-chip" style="background:#0F6E56;">every person</span>
-            <span class="word-chip" style="background:#0F6E56;">because</span>
-            <span class="word-chip" style="background:#0F6E56;">proven</span>
-            <span class="word-chip" style="background:#0F6E56;">never</span>
-            <span class="word-chip" style="background:#0F6E56;">the right thing</span>
-          </div>
+    <div class="values">
+      <div class="value-card">
+        <div class="val-num">1</div>
+        <div>
+          <div class="val-title">Fair Solutions for Everyone</div>
+          <div class="val-desc">A Stripes president listens to both sides of every disagreement and finds a solution that feels fair -- not just for their friends, but for the whole class.</div>
+          <div class="val-promise">Our promise: We will always hear both sides before deciding.</div>
         </div>
       </div>
 
-      <div class="writing-col">
-        <div class="writing-prompt stripes-prompt">
-          You are the Stripes nominee. Write 2-3 sentences promising what you will do as class president. Use your party values, at least one emotion word, and persuasive language to convince your classmates to vote for you.
+      <div class="value-card">
+        <div class="val-num">2</div>
+        <div>
+          <div class="val-title">Calm Wins Over Chaos</div>
+          <div class="val-desc">When things get messy, a Stripes president doesn't panic or pick favorites. They think it through and help the class get back on track with steady leadership.</div>
+          <div class="val-promise">Our promise: We will be the calm in the storm.</div>
         </div>
+      </div>
 
-        <div class="checklist-title">Before you submit, check:</div>
-        <div class="checklist">
-          <div class="check-item"><div class="check-box"></div> My promise matches Stripes values</div>
-          <div class="check-item"><div class="check-box"></div> I used at least 1 emotion word</div>
-          <div class="check-item"><div class="check-box"></div> I used persuasive language</div>
-          <div class="check-item"><div class="check-box"></div> I gave a reason (because...)</div>
-          <div class="check-item"><div class="check-box"></div> 2-3 complete sentences</div>
-        </div>
-
-        <div class="lines">
-          <div class="write-line first"></div>
-          <div class="write-line"></div>
-          <div class="write-line"></div>
-          <div class="write-line"></div>
-          <div class="write-line"></div>
-          <div class="write-line"></div>
-          <div class="write-line"></div>
-          <div class="write-line"></div>
+      <div class="value-card">
+        <div class="val-num">3</div>
+        <div>
+          <div class="val-title">Decisions Belong to Everyone</div>
+          <div class="val-desc">A Stripes president runs fair votes, makes sure every student has a real say, and accepts the outcome -- even if it's not what they personally wanted.</div>
+          <div class="val-promise">Our promise: The class decides together. Always.</div>
         </div>
       </div>
     </div>
+
+    <div class="pledge">
+      <div class="pledge-label">The Stripes Pledge</div>
+      <div class="pledge-text">I believe that <em>fairness is the foundation of everything</em>. I will stay calm, listen carefully, and stand up for what is right -- not just what is easy. I will lead with <em>honesty, steadiness, and respect</em> for every person in this room.</div>
+    </div>
+
   </div>
 
 </div>
+
 </body>
 </html>

@@ -189,8 +189,10 @@
   const app = initializeApp(firebaseConfig);
   const db  = getDatabase(app);
 
-  const BOYS  = ['Aiden','Brayden','Jackson','Luke','Milo','Tucker','Ty','Waylon'];
-  const GIRLS = ['Alexa','Ava','Colette','Ellowyn','KK','Kylie','Taegan'];
+  const BOYS_STARS  = ['Aiden','Jackson','Milo','Ty'];
+  const GIRLS_STARS = ['Alexa','Colette','Ellowyn'];
+  const BOYS_STRIPES  = ['Brayden','Luke','Tucker','Waylon'];
+  const GIRLS_STRIPES = ['Ava','KK','Kylie','Taegan'];
   const PIN   = '1234';
 
   let selectedBoy = null, selectedGirl = null, currentVoter = '';
@@ -217,8 +219,10 @@
     const bl = document.getElementById('boys-list');
     const gl = document.getElementById('girls-list');
     bl.innerHTML = ''; gl.innerHTML = '';
-    BOYS.forEach(n  => bl.appendChild(makeRow(n, 'boy')));
-    GIRLS.forEach(n => gl.appendChild(makeRow(n, 'girl')));
+    BOYS_STARS.forEach(n  => bl.appendChild(makeRow(n, 'boy')));
+    BOYS_STRIPES.forEach(n  => bl.appendChild(makeRow(n, 'boy')));
+    GIRLS_STARS.forEach(n => gl.appendChild(makeRow(n, 'girl')));
+    GIRLS_STRIPES.forEach(n => gl.appendChild(makeRow(n, 'girl')));
     updateSummary();
   }
 

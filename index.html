@@ -1,466 +1,659 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>President Guide</title>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --yellow: #FFD93D;
-    --coral: #FF6B6B;
-    --teal: #4ECDC4;
-    --navy: #1A1A2E;
-    --purple: #9B5DE5;
-    --green: #06D6A0;
-    --white: #FFFEF7;
-    --shadow: 4px 4px 0px var(--navy);
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>President Guide</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --yellow: #ffd93d;
+        --coral: #ff6b6b;
+        --teal: #4ecdc4;
+        --navy: #1a1a2e;
+        --purple: #9b5de5;
+        --green: #06d6a0;
+        --white: #fffef7;
+        --shadow: 4px 4px 0px var(--navy);
+      }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-  body {
-    background-color: var(--white);
-    background-image: 
-      radial-gradient(circle at 10% 20%, rgba(255,217,61,0.15) 0%, transparent 40%),
-      radial-gradient(circle at 90% 80%, rgba(78,205,196,0.15) 0%, transparent 40%),
-      radial-gradient(circle at 50% 50%, rgba(155,93,229,0.08) 0%, transparent 60%);
-    font-family: 'Nunito', sans-serif;
-    color: var(--navy);
-    padding: 40px 20px;
-    min-height: 100vh;
-  }
+      body {
+        background-color: var(--white);
+        background-image:
+          radial-gradient(
+            circle at 10% 20%,
+            rgba(255, 217, 61, 0.15) 0%,
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 90% 80%,
+            rgba(78, 205, 196, 0.15) 0%,
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 50% 50%,
+            rgba(155, 93, 229, 0.08) 0%,
+            transparent 60%
+          );
+        font-family: "Nunito", sans-serif;
+        color: var(--navy);
+        padding: 40px 20px;
+        min-height: 100vh;
+      }
 
-  .page {
-    max-width: 860px;
-    margin: 0 auto;
-  }
+      .page {
+        max-width: 860px;
+        margin: 0 auto;
+      }
 
-  /* HEADER */
-  .header {
-    text-align: center;
-    margin-bottom: 48px;
-  }
+      /* HEADER */
+      .header {
+        text-align: center;
+        margin-bottom: 48px;
+      }
 
-  .star-badge {
-    display: inline-block;
-    background: var(--yellow);
-    border: 3px solid var(--navy);
-    border-radius: 50px;
-    padding: 8px 24px;
-    font-family: 'Fredoka One', cursive;
-    font-size: 14px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    box-shadow: var(--shadow);
-    margin-bottom: 16px;
-  }
+      .star-badge {
+        display: inline-block;
+        background: var(--yellow);
+        border: 3px solid var(--navy);
+        border-radius: 50px;
+        padding: 8px 24px;
+        font-family: "Fredoka One", cursive;
+        font-size: 14px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        box-shadow: var(--shadow);
+        margin-bottom: 16px;
+      }
 
-  h1 {
-    font-family: 'Fredoka One', cursive;
-    font-size: clamp(48px, 8vw, 80px);
-    line-height: 1;
-    color: var(--navy);
-    position: relative;
-    display: inline-block;
-  }
+      h1 {
+        font-family: "Fredoka One", cursive;
+        font-size: clamp(48px, 8vw, 80px);
+        line-height: 1;
+        color: var(--navy);
+        position: relative;
+        display: inline-block;
+      }
 
-  h1 span.accent { color: var(--coral); }
+      h1 span.accent {
+        color: var(--coral);
+      }
 
-  .subtitle {
-    margin-top: 12px;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--navy);
-    opacity: 0.6;
-  }
+      .subtitle {
+        margin-top: 12px;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--navy);
+        opacity: 0.6;
+      }
 
-  /* SECTION CARDS */
-  .section {
-    background: white;
-    border: 3px solid var(--navy);
-    border-radius: 20px;
-    padding: 32px;
-    margin-bottom: 32px;
-    box-shadow: var(--shadow);
-    position: relative;
-    overflow: hidden;
-  }
+      /* SECTION CARDS */
+      .section {
+        background: white;
+        border: 3px solid var(--navy);
+        border-radius: 20px;
+        padding: 32px;
+        margin-bottom: 32px;
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+      }
 
-  .section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 6px;
-  }
+      .section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+      }
 
-  .section.jobs::before { background: var(--teal); }
-  .section.election::before { background: var(--coral); }
-  .section.impeachment::before { background: var(--purple); }
+      .section.jobs::before {
+        background: var(--teal);
+      }
+      .section.election::before {
+        background: var(--coral);
+      }
+      .section.impeachment::before {
+        background: var(--purple);
+      }
 
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 24px;
-  }
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 24px;
+      }
 
-  .section-icon {
-    width: 52px;
-    height: 52px;
-    border-radius: 14px;
-    border: 3px solid var(--navy);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 26px;
-    flex-shrink: 0;
-  }
+      .section-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        border: 3px solid var(--navy);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        flex-shrink: 0;
+      }
 
-  .jobs .section-icon { background: var(--teal); }
-  .election .section-icon { background: var(--coral); }
-  .impeachment .section-icon { background: var(--purple); }
+      .jobs .section-icon {
+        background: var(--teal);
+      }
+      .election .section-icon {
+        background: var(--coral);
+      }
+      .impeachment .section-icon {
+        background: var(--purple);
+      }
 
-  h2 {
-    font-family: 'Fredoka One', cursive;
-    font-size: 30px;
-    color: var(--navy);
-  }
+      h2 {
+        font-family: "Fredoka One", cursive;
+        font-size: 30px;
+        color: var(--navy);
+      }
 
-  /* JOB CARDS */
-  .jobs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-  }
+      /* JOB CARDS */
+      .jobs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+      }
 
-  .job-card {
-    border: 2.5px solid var(--navy);
-    border-radius: 16px;
-    padding: 20px;
-    position: relative;
-  }
+      .job-card {
+        border: 2.5px solid var(--navy);
+        border-radius: 16px;
+        padding: 20px;
+        position: relative;
+      }
 
-  .job-card:nth-child(1) { background: #E8F9F8; }
-  .job-card:nth-child(2) { background: #FFF3E0; }
-  .job-card:nth-child(3) { background: #F3EAFF; }
+      .job-card:nth-child(1) {
+        background: #e8f9f8;
+      }
+      .job-card:nth-child(2) {
+        background: #fff3e0;
+      }
+      .job-card:nth-child(3) {
+        background: #f3eaff;
+      }
 
-  .job-number {
-    font-family: 'Fredoka One', cursive;
-    font-size: 42px;
-    line-height: 1;
-    opacity: 0.12;
-    position: absolute;
-    top: 12px;
-    right: 16px;
-  }
+      .job-number {
+        font-family: "Fredoka One", cursive;
+        font-size: 42px;
+        line-height: 1;
+        opacity: 0.12;
+        position: absolute;
+        top: 12px;
+        right: 16px;
+      }
 
-  .job-title {
-    font-family: 'Fredoka One', cursive;
-    font-size: 20px;
-    margin-bottom: 8px;
-    color: var(--navy);
-  }
+      .job-title {
+        font-family: "Fredoka One", cursive;
+        font-size: 20px;
+        margin-bottom: 8px;
+        color: var(--navy);
+      }
 
-  .job-desc {
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 1.5;
-    color: var(--navy);
-    opacity: 0.75;
-  }
+      .job-desc {
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1.5;
+        color: var(--navy);
+        opacity: 0.75;
+      }
 
-  /* STEPS */
-  .steps {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
+      /* STEPS */
+      .steps {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
 
-  .step {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-  }
+      .step {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+      }
 
-  .step-num {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: 2.5px solid var(--navy);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Fredoka One', cursive;
-    font-size: 18px;
-    flex-shrink: 0;
-    background: var(--yellow);
-  }
+      .step-num {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 2.5px solid var(--navy);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Fredoka One", cursive;
+        font-size: 18px;
+        flex-shrink: 0;
+        background: var(--yellow);
+      }
 
-  .step-text {
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1.5;
-    padding-top: 4px;
-  }
+      .step-text {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.5;
+        padding-top: 4px;
+      }
 
-  .step-text .note {
-    display: inline-block;
-    background: var(--yellow);
-    border-radius: 6px;
-    padding: 1px 8px;
-    font-size: 13px;
-    font-weight: 800;
-    border: 1.5px solid var(--navy);
-    margin-left: 6px;
-  }
+      .step-text .note {
+        display: inline-block;
+        background: var(--yellow);
+        border-radius: 6px;
+        padding: 1px 8px;
+        font-size: 13px;
+        font-weight: 800;
+        border: 1.5px solid var(--navy);
+        margin-left: 6px;
+      }
 
-  /* WARNING LEVELS */
-  .warning-levels {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
+      /* WARNING LEVELS */
+      .warning-levels {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
 
-  .warning {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    padding: 14px 16px;
-    border-radius: 12px;
-    border: 2.5px solid var(--navy);
-  }
+      .warning {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 14px 16px;
+        border-radius: 12px;
+        border: 2.5px solid var(--navy);
+      }
 
-  .warning.level-1 { background: #FFFDE7; }
-  .warning.level-2 { background: #FFF0E0; }
-  .warning.level-3 { background: #FFE8E8; }
+      .warning.level-1 {
+        background: #fffde7;
+      }
+      .warning.level-2 {
+        background: #fff0e0;
+      }
+      .warning.level-3 {
+        background: #ffe8e8;
+      }
 
-  .warning-label {
-    font-family: 'Fredoka One', cursive;
-    font-size: 15px;
-    white-space: nowrap;
-    padding: 3px 10px;
-    border-radius: 8px;
-    border: 2px solid var(--navy);
-    flex-shrink: 0;
-  }
+      .warning-label {
+        font-family: "Fredoka One", cursive;
+        font-size: 15px;
+        white-space: nowrap;
+        padding: 3px 10px;
+        border-radius: 8px;
+        border: 2px solid var(--navy);
+        flex-shrink: 0;
+      }
 
-  .warning.level-1 .warning-label { background: var(--yellow); }
-  .warning.level-2 .warning-label { background: #FFB347; }
-  .warning.level-3 .warning-label { background: var(--coral); color: white; }
+      .warning.level-1 .warning-label {
+        background: var(--yellow);
+      }
+      .warning.level-2 .warning-label {
+        background: #ffb347;
+      }
+      .warning.level-3 .warning-label {
+        background: var(--coral);
+        color: white;
+      }
 
-  .warning-text {
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 1.5;
-  }
+      .warning-text {
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.5;
+      }
 
-  /* TERM INFO PILL */
-  .term-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--green);
-    border: 2.5px solid var(--navy);
-    border-radius: 50px;
-    padding: 8px 20px;
-    font-family: 'Fredoka One', cursive;
-    font-size: 18px;
-    box-shadow: 3px 3px 0 var(--navy);
-    margin-bottom: 24px;
-  }
+      /* TERM INFO PILL */
+      .term-pill {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        gap: 15px;
+        background: var(--green);
+        border: 2.5px solid var(--navy);
+        border-radius: 50px;
+        padding: 8px 20px;
+        font-family: "Fredoka One", cursive;
+        font-size: 18px;
+        box-shadow: 3px 3px 0 var(--navy);
+        margin-bottom: 24px;
+      }
 
-  /* DIVIDER */
-  .divider {
-    border: none;
-    border-top: 2.5px dashed rgba(26,26,46,0.2);
-    margin: 20px 0;
-  }
+      /* DIVIDER */
+      .divider {
+        border: none;
+        border-top: 2.5px dashed rgba(26, 26, 46, 0.2);
+        margin: 20px 0;
+      }
 
-  .rule-note {
-    background: var(--yellow);
-    border: 2px solid var(--navy);
-    border-radius: 10px;
-    padding: 10px 16px;
-    font-size: 14px;
-    font-weight: 800;
-    margin-top: 16px;
-    display: inline-block;
-  }
+      .rule-note {
+        background: var(--yellow);
+        border: 2px solid var(--navy);
+        border-radius: 10px;
+        padding: 10px 16px;
+        font-size: 14px;
+        font-weight: 800;
+        margin-top: 16px;
+        display: inline-block;
+      }
 
-  @media print {
-    body { padding: 20px; background: white; }
-    .section { break-inside: avoid; }
-  }
-</style>
-</head>
-<body>
-<div class="page">
-
-  <div class="header">
-    <div class="star-badge">4th Grade Official Guide</div>
-    <h1><span class="accent">Class Presidents</span></h1>
-    <p class="subtitle">1 Peter 5:2-5</p>
-     <p class="subtitle">Shepherd the flock of God that is among you, exercising oversight, not under compulsion, but willingly, as God would have you; not for shameful gain, but eagerly; not domineering over those in your charge, but being examples to the flock. And when the Chief Shepherd appears, you will receive the unfading crown of glory. <p>
-  </div>
-
-  <!-- JOBS -->
-  <div class="section jobs">
-    <div class="section-header">
-      <div class="section-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1A1A2E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+      @media print {
+        body {
+          padding: 20px;
+          background: white;
+        }
+        .section {
+          break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="header">
+        <div class="star-badge">4th Grade Official Guide</div>
+        <h1><span class="accent">Class Presidents</span></h1>
+        <p class="subtitle">1 Peter 5:2-5</p>
+        <p class="subtitle">
+          Shepherd the flock of God that is among you, exercising oversight, not
+          under compulsion, but willingly, as God would have you; not for
+          shameful gain, but eagerly; not domineering over those in your charge,
+          but being examples to the flock. And when the Chief Shepherd appears,
+          you will receive the unfading crown of glory.
+        </p>
+        <p></p>
       </div>
+
+      <!-- JOBS -->
+      <div class="section jobs">
+        <div class="section-header">
+          <div class="section-icon">
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#1A1A2E"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="2" y="7" width="20" height="14" rx="2" />
+              <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+            </svg>
+          </div>
+          <div>
+            <h2>Your 3 Jobs</h2>
+            <div class="term-pill">
+              Term: 2 Weeks &nbsp;|&nbsp; 1 Boy + 1 Girl elected
+            </div>
+          </div>
+        </div>
+
+        <div class="jobs-grid">
+          <div class="job-card">
+            <div class="job-number">1</div>
+            <div class="job-title">Lead Morning Meeting</div>
+            <div class="job-desc">
+              Call the class to order on time at 8:35am. Presidents will take
+              turns leading the morning meeting activities. Talk about the word
+              of the day, present student awards, call the pledge person to come
+              up to do the pledge, and then go through the daily schedule.
+            </div>
+          </div>
+          <div class="job-card">
+            <div class="job-number">2</div>
+            <div class="job-title">Help Solve Problems</div>
+            <div class="job-desc">
+              When classmates have a disagreement, they can choose to go to you
+              to help them work it out calmly. Or Mrs. Williams might direct
+              them to talk to you and get your help. You are a listener and a
+              fair helper, not a boss.
+            </div>
+          </div>
+          <div class="job-card">
+            <div class="job-number">3</div>
+            <div class="job-title">Class Decision Voice</div>
+            <div class="job-desc">
+              When the class gets to make a fun choice (like a game or
+              activity), each president has the power to VETO one of Mrs.
+              Williams's presented options. Then the co-presidents will
+              deliberate briefly and decide whether to put it to a class vote or
+              to choose on behalf of the class.
+            </div>
+          </div>
+        </div>
+
+        <p class="rule-note">
+          Remember: Presidents are leaders, not bosses. You cannot tell other
+          students what to do. You serve the class, the class does not serve
+          you.
+        </p>
+      </div>
+
+      <!-- ELECTION -->
+      <div class="section election">
+        <div class="section-header">
+          <div class="section-icon">
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#1A1A2E"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M9 11l3 3L22 4" />
+              <path
+                d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"
+              />
+            </svg>
+          </div>
+          <h2>Fair Election Process</h2>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">
+              During Monday Memo, everyone will write a "Campaign Promise."
+              Anyone who wants to run raises their hand, and will have a chance
+              to present their Campaign Promise to the class.
+              <span class="note"
+                >TAs cannot run for President while they are a TA.</span
+              >
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">
+              Each candidate presents their Campaign Promise to the class.
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-text">
+              Each student will go to the ballot box and submit their vote
+              secretly in the polling booth.
+              <span class="note">Voting is private, no peaking.</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-text">
+              You vote for ONE boy and ONE girl. You cannot vote for yourself.
+              You cannot vote the same person twice.
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-text">
+              Hit "Submit" on the screen, and confirm you vote. Then go sit down
+              at your desk.
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">6</div>
+            <div class="step-text">
+              Ms. Williams counts the votes. The boy and girl with the most
+              votes win. The winners will begin their term upon swearing in
+              during the inauguration (Snack Time).
+              <span class="note">Tie? Flip a coin.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- IMPEACHMENT -->
+      <div class="section impeachment">
+        <div class="section-header">
+          <div class="section-icon">
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>
+          </div>
+          <h2>Impeachment Process</h2>
+        </div>
+
+        <p
+          style="
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            opacity: 0.75;
+          "
+        >
+          Being President is a privilege. If you are not doing your job or you
+          are breaking class rules, here is what happens:
+        </p>
+
+        <div class="warning-levels">
+          <div class="warning level-1">
+            <span class="warning-label">Step 1: Warning</span>
+            <span class="warning-text"
+              >Teacher gives you a private reminder. This is your chance to fix
+              it. No one else needs to know.</span
+            >
+          </div>
+          <div class="warning level-2">
+            <span class="warning-label">Step 2: Final Warning</span>
+            <span class="warning-text"
+              >If it happens again, the teacher tells the class that the
+              President has received a final warning. You have one more
+              chance.</span
+            >
+          </div>
+          <div class="warning level-3">
+            <span class="warning-label">Step 3: Removed</span>
+            <span class="warning-text"
+              >If behavior continues, you are removed from the position
+              immediately. The runner-up from the election takes over for the
+              rest of the term. No vote needed.</span
+            >
+          </div>
+        </div>
+      </div>
+
       <div>
-        <h2>Your 3 Jobs</h2>
-        <div class="term-pill">Term: 2 Weeks &nbsp;|&nbsp; 1 Boy + 1 Girl elected</div>
-      </div>
-    </div>
-
-    <div class="jobs-grid">
-      <div class="job-card">
-        <div class="job-number">1</div>
-        <div class="job-title">Lead Morning Meeting</div>
-        <div class="job-desc">Call the class to order on time at 8:35am. Presidents will take turns leading the morning meeting activities. Talk about the word of the day, present student awards, call the pledge person to come up to do the pledge, and then go through the daily schedule.</div>
-      </div>
-      <div class="job-card">
-        <div class="job-number">2</div>
-        <div class="job-title">Help Solve Problems</div>
-        <div class="job-desc">When classmates have a disagreement, they can choose to go to you to help them work it out calmly. Or Mrs. Williams might direct them to talk to you and get your help. You are a listener and a fair helper, not a boss.</div>
-      </div>
-      <div class="job-card">
-        <div class="job-number">3</div>
-        <div class="job-title">Class Decision Voice</div>
-        <div class="job-desc">When the class gets to make a fun choice (like a game or activity), each president has the power to VETO one of Mrs. Williams's presented options. Then the co-presidents will deliberate briefly and decide whether to put it to a class vote or to choose on behalf of the class.</div>
-      </div>
-    </div>
-
-    <p class="rule-note">Remember: Presidents are leaders, not bosses. You cannot tell other students what to do. You serve the class, the class does not serve you.</p>
-  </div>
-
-  <!-- ELECTION -->
-  <div class="section election">
-    <div class="section-header">
-      <div class="section-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1A1A2E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-      </div>
-      <h2>Fair Election Process</h2>
-    </div>
-
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-text">During Monday Memo, everyone will write a "Campaign Promise." Anyone who wants to run raises their hand, and will have a chance to present their Campaign Promise to the class. <span class="note">TAs cannot run for President while they are a TA.</span></div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-text">Each candidate presents their Campaign Promise to the class.</div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-text">Each student will go to the ballot box and submit their vote secretly in the polling booth. <span class="note">Voting is private, no peaking.</span></div>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div class="step-text">You vote for ONE boy and ONE girl. You cannot vote for yourself. You cannot vote the same person twice.</div>
-      </div>
-      <div class="step">
-        <div class="step-num">5</div>
-        <div class="step-text">Hit "Submit" on the screen, and confirm you vote. Then go sit down at your desk.</div>
-      </div>
-      <div class="step">
-        <div class="step-num">6</div>
-        <div class="step-text">Ms. Williams counts the votes. The boy and girl with the most votes win. The winners will begin their term upon swearing in during the inauguration (Snack Time). <span class="note">Tie? Flip a coin.</span></div>
-      </div>
-    </div>
-  <div class="section election">
-    <div class="section-header">
-      <div class="section-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1A1A2E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-     
-
-  <!-- IMPEACHMENT -->
-  <div class="section impeachment">
-    <div class="section-header">
-      <div class="section-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      </div>
-      <h2>Impeachment Process</h2>
-    </div>
-
-    <p style="font-size:16px; font-weight:700; margin-bottom:20px; opacity:0.75;">Being President is a privilege. If you are not doing your job or you are breaking class rules, here is what happens:</p>
-
-    <div class="warning-levels">
-      <div class="warning level-1">
-        <span class="warning-label">Step 1: Warning</span>
-        <span class="warning-text">Teacher gives you a private reminder. This is your chance to fix it. No one else needs to know.</span>
-      </div>
-      <div class="warning level-2">
-        <span class="warning-label">Step 2: Final Warning</span>
-        <span class="warning-text">If it happens again, the teacher tells the class that the President has received a final warning. You have one more chance.</span>
-      </div>
-      <div class="warning level-3">
-        <span class="warning-label">Step 3: Removed</span>
-        <span class="warning-text">If behavior continues, you are removed from the position immediately. The runner-up from the election takes over for the rest of the term. No vote needed.</span>
-      </div>
- </div>
-
- <div>
         <h2>Oath of Office</h2>
-        <div class="term-pill">Mrs. Williams says: "Do you promise to be an example worth following -- in the way you speak, the way you listen, and the way you treat every person in this room?"
-                <p>President-elect says: "I will."</div>
+        <div class="term-pill">
+          <div>
+            <p>Mrs. Williams says:</p>
+            <blockquote>
+              "Do you promise to be an example worth following -- in the way you
+              speak, the way you listen, and the way you treat every person in
+              this room?"
+            </blockquote>
+          </div>
+          <div>
+            <p>President-elect says:</p>
+            <blockquote>"I will."</blockquote>
+          </div>
+        </div>
+      </div>
 
-  <div>                 
- <button onclick="window.location.href='campaign-promises.html'" style="
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 13px 28px;
-  border-radius: 50px;
-  font-family: 'Nunito', sans-serif;
-  font-size: 16px;
-  font-weight: 800;
-  cursor: pointer;
-  border: 2.5px solid #1A1A2E;
-  background: #1A1A2E;
-  color: #FFFEF7;
-  box-shadow: 3px 3px 0 #4ECDC4;
-  text-decoration: none;
-  transition: transform 0.1s, box-shadow 0.1s;
-" onmouseover="this.style.boxShadow='5px 5px 0 #4ECDC4'" 
-   onmouseout="this.style.boxShadow='3px 3px 0 #4ECDC4'"
-   onmousedown="this.style.transform='scale(0.97)'"
-   onmouseup="this.style.transform='scale(1)'">
-  Go to Campaign Promise&rarr;
-</button> 
- </div>
+      <div>
+        <button
+          onclick="window.location.href = 'campaign-promise.html'"
+          style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 13px 28px;
+            margin-bottom: 20px;
+            border-radius: 50px;
+            font-family: &quot;Nunito&quot;, sans-serif;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+            border: 2.5px solid #1a1a2e;
+            background: #1a1a2e;
+            color: #fffef7;
+            box-shadow: 3px 3px 0 #4ecdc4;
+            text-decoration: none;
+            transition:
+              transform 0.1s,
+              box-shadow 0.1s;
+          "
+          onmouseover="this.style.boxShadow = '5px 5px 0 #4ECDC4'"
+          onmouseout="this.style.boxShadow = '3px 3px 0 #4ECDC4'"
+          onmousedown="this.style.transform = 'scale(0.97)'"
+          onmouseup="this.style.transform = 'scale(1)'"
+        >
+          Go to Campaign Promise&rarr;
+        </button>
+      </div>
 
-  <div>
-<button onclick="window.location.href='polling-booth.html'" style="
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 13px 28px;
-  border-radius: 50px;
-  font-family: 'Nunito', sans-serif;
-  font-size: 16px;
-  font-weight: 800;
-  cursor: pointer;
-  border: 2.5px solid #1A1A2E;
-  background: #1A1A2E;
-  color: #FFFEF7;
-  box-shadow: 3px 3px 0 #4ECDC4;
-  text-decoration: none;
-  transition: transform 0.1s, box-shadow 0.1s;
-" onmouseover="this.style.boxShadow='5px 5px 0 #4ECDC4'" 
-   onmouseout="this.style.boxShadow='3px 3px 0 #4ECDC4'"
-   onmousedown="this.style.transform='scale(0.97)'"
-   onmouseup="this.style.transform='scale(1)'">
-  Go to Polling Booth &rarr;
-</button>
- </div>
- 
-</div>
-</body>
+      <div>
+        <button
+          onclick="window.location.href = 'polling-booth.html'"
+          style="
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 13px 28px;
+            border-radius: 50px;
+            font-family: &quot;Nunito&quot;, sans-serif;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+            border: 2.5px solid #1a1a2e;
+            background: #1a1a2e;
+            color: #fffef7;
+            box-shadow: 3px 3px 0 #4ecdc4;
+            text-decoration: none;
+            transition:
+              transform 0.1s,
+              box-shadow 0.1s;
+          "
+          onmouseover="this.style.boxShadow = '5px 5px 0 #4ECDC4'"
+          onmouseout="this.style.boxShadow = '3px 3px 0 #4ECDC4'"
+          onmousedown="this.style.transform = 'scale(0.97)'"
+          onmouseup="this.style.transform = 'scale(1)'"
+        >
+          Go to Polling Booth &rarr;
+        </button>
+      </div>
+    </div>
+  </body>
 </html>
